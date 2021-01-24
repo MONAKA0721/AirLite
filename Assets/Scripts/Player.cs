@@ -46,13 +46,15 @@ public class Player : MonoBehaviour
     //移動
     Vector3 addPosition = Vector3.zero;   //移動量(z の値はメカニムにも渡す)
     {
-
-      //移動量をTransformに渡して移動させる
-      transform.position += ((transform.rotation * new Vector3(0, 0, speed)) * Time.deltaTime);
-      /*
-		Vector3にtransform.rotationを掛けると、その方向へ曲げてくれる
-		この時、Vector3 は Z+ の方向を正面として考える
-	  */
+      if (!Input.GetKey(KeyCode.Space))
+      {
+        //移動量をTransformに渡して移動させる
+        transform.position += ((transform.rotation * new Vector3(0, 0, speed)) * Time.deltaTime);
+        /*
+      Vector3にtransform.rotationを掛けると、その方向へ曲げてくれる
+      この時、Vector3 は Z+ の方向を正面として考える
+      */
+      }
     }
   }
 }
